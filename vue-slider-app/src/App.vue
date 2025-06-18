@@ -2,7 +2,6 @@
   <div id="app">
     <header>
       <h1>Vue.js Dog Slider</h1>
-      <p>A slider component that fetches random dog images from an API</p>
     </header>
     <main>
       <DogSlider />
