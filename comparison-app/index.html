@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue vs React Slider Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .framework-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .framework-header {
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .vue-header {
+            background: linear-gradient(135deg, #4fc08d, #42b883);
+            color: white;
+        }
+        
+        .react-header {
+            background: linear-gradient(135deg, #61dafb, #21a0c4);
+            color: white;
+        }
+        
+        .iframe-container {
+            height: 600px;
+            position: relative;
+        }
+        
+        .framework-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .instructions {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .instructions h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .instructions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .instruction-section h3 {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .instruction-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .instruction-section li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #666;
+        }
+        
+        .instruction-section li:last-child {
+            border-bottom: none;
+        }
+        
+        .code-snippet {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .vue-code {
+            border-left: 4px solid #42b883;
+        }
+        
+        .react-code {
+            border-left: 4px solid #61dafb;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-grid,
+            .instructions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .iframe-container {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Vue.js vs React.js Slider Comparison</h1>
+            <p>Compare the same slider component built with different frameworks</p>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="framework-section">
+                <div class="framework-header vue-header">
+                    <h2>Vue.js Implementation</h2>
+                </div>
+                <div class="iframe-container">
+                    <div class="loading">Loading Vue app...</div>
+                    <iframe 
+                        class="framework-iframe" 
+                        src="http://localhost:5173"
+                        title="Vue.js Dog Slider"
+                        onload="this.previousElementSibling.style.display='none'"
+                    ></iframe>
+                </div>
+            </div>
+            
+            <div class="framework-section">
+                <div class="framework-header react-header">
+                    <h2>React.js Implementation</h2>
+                </div>
+                <div class="iframe-container">
+                    <div class="loading">Loading React app...</div>
+                    <iframe 
+                        class="framework-iframe" 
+                        src="http://localhost:3200"
+                        title="React.js Dog Slider"
+                        onload="this.previousElementSibling.style.display='none'"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2>Framework Comparison</h2>
+            <div class="instructions-grid">
+                <div class="instruction-section">
+                    <h3>Vue.js Characteristics</h3>
+                    <ul>
+                        <li><strong>Template Syntax:</strong> HTML-like templates with directives</li>
+                        <li><strong>Reactivity:</strong> Built-in reactive data system</li>
+                        <li><strong>Component Structure:</strong> Single File Components (.vue)</li>
+                        <li><strong>State Management:</strong> data() function returns reactive state</li>
+                        <li><strong>Event Handling:</strong> @click directive syntax</li>
+                        <li><strong>Conditional Rendering:</strong> v-if, v-else directives</li>
+                        <li><strong>List Rendering:</strong> v-for directive</li>
+                    </ul>
+                    
+                    <div class="code-snippet vue-code">
+<pre>// Vue component structure
+&lt;template&gt;
+  &lt;div @click="handleClick"&gt;
+    &lt;img v-for="dog in dogs" :src="dog.url" /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      dogs: [],
+      currentIndex: 0
+    }
+  },
+  methods: {
+    handleClick() { /* ... */ }
+  }
+}
+&lt;/script&gt;</pre>
+                    </div>
+                </div>
+                
+                <div class="instruction-section">
+                    <h3>React.js Characteristics</h3>
+                    <ul>
+                        <li><strong>JSX Syntax:</strong> JavaScript XML for component templates</li>
+                        <li><strong>Hooks:</strong> useState, useEffect for state and lifecycle</li>
+                        <li><strong>Component Structure:</strong> JavaScript/JSX files</li>
+                        <li><strong>State Management:</strong> useState hook for component state</li>
+                        <li><strong>Event Handling:</strong> onClick prop syntax</li>
+                        <li><strong>Conditional Rendering:</strong> JavaScript ternary operators</li>
+                        <li><strong>List Rendering:</strong> Array.map() method</li>
+                    </ul>
+                    
+                    <div class="code-snippet react-code">
+<pre>// React component structure
+import { useState, useEffect } from 'react'
+
+const DogSlider = () => {
+  const [dogs, setDogs] = useState([])
+  const [currentIndex, setCurrentIndex] = useState(0)
+  
+  const handleClick = () => { /* ... */ }
+  
+  return (
+    &lt;div onClick={handleClick}&gt;
+      {dogs.map(dog => 
+        &lt;img src={dog.url} key={dog.id} /&gt;
+      )}
+    &lt;/div&gt;
+  )
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
